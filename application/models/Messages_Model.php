@@ -37,11 +37,21 @@ class Messages_model extends CI_Model {
                 "sender" => $sender
             ))->result_array();
         } else {
-            return $this->db->get_where("messages", array(
-                "sender" => $sender,
-                "receiver" => $receiver
-            ))->result_array();
+            $this->db->from('messages');
+            $this->db->where(array("sender" => $sender, "receiver" => $receiver));
+            $this->db->or_where(array("sender" => $receiver, "receiver" => $sender));
+            return $this->db->get()->result_array();
         }
+        // if ($receiver == null) {
+        //     return $this->db->get_where("messages", array(
+        //         "sender" => $sender
+        //     ))->result_array();
+        // } else {
+        //     return $this->db->get_where("messages", array(
+        //         "sender" => $sender,
+        //         "receiver" => $receiver
+        //     ))->result_array();
+        // }
     }
 
     public function update(int $id, array $fields): bool
