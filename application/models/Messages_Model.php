@@ -38,9 +38,6 @@ class Messages_model extends CI_Model {
             ))->result_array();
         } else {
             $this->db->from('messages');
-            // $where = "(sender='" . $sender . "' AND receiver='" . $receiver . "') OR (sender='" . $receiver . "' AND receiver='" . $sender . "')";
-            // $this->db->where($where);
-
             $this->db->where('sender', $sender);
             $this->db->where('receiver', $receiver);
             $this->db->or_where('sender', $receiver);
