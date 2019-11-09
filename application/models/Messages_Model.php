@@ -38,8 +38,8 @@ class Messages_model extends CI_Model {
             ))->result_array();
         } else {
             $this->db->from('messages');
-            $this->db->where(array("sender" => $sender, "receiver" => $receiver));
-            $this->db->where(array("sender" => $receiver, "receiver" => $sender));
+            $where = "(sender='" . $sender . "' AND receiver='" . $receiver . ") OR (sender='" . $receiver . "' AND receiver='" . $sender . "')";
+            $this->db->where($where);
             return $this->db->get()->result_array();
         }
         // if ($receiver == null) {
