@@ -42,6 +42,8 @@ class Messages extends CI_Controller {
 
     public function create()
     {
+        header("Access-Control-Allow-Origin: *");
+        
         $record = array(
             "date" => date(DATE_RFC822),
             "time" => unix_to_human(time(), TRUE),
