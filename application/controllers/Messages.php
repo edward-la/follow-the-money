@@ -48,13 +48,13 @@ class Messages extends CI_Controller {
             $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(array(
-                    "status" => "OK"
+                    "status" => "Error"
                 )));
         } else {
             $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(array(
-                    "status" => "Error",
+                    "status" => "OK",
                 )));
         };
     }
