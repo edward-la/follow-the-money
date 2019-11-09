@@ -38,7 +38,7 @@ class Messages_model extends CI_Model {
             ))->result_array();
         } else {
             $this->db->from('messages');
-            $this->db->where(array("sender" => $sender, "receiver" => $receiver));
+            // $this->db->where(array("sender" => $sender, "receiver" => $receiver));
             $this->db->or_where(array("sender" => $receiver, "receiver" => $sender));
             return $this->db->get()->result_array();
         }
