@@ -5,7 +5,7 @@ class Messages extends CI_Controller {
 
     public function __construct()
     {
-        header("Access-Control-Allow-Origin: GET, POST");
+        header("Access-Control-Allow-Origin: *");
         parent::__construct();
     }
 
