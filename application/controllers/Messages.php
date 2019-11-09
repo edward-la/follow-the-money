@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Messages extends CI_Controller {
 
+    public function __construct()
+    {
+        header("Access-Control-Allow-Origin: GET, POST");
+        parent::__construct();
+    }
+
 	public function get(string $id, string $sender = null, string $receiver = null)
 	{
         if ($sender == null) {
