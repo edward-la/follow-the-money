@@ -6,7 +6,7 @@ class Messages extends CI_Controller {
     public function __construct()
     {
         header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: GET, POST");
+        header("Access-Control-Allow-Methods: *");
         parent::__construct();
     }
 
@@ -43,7 +43,7 @@ class Messages extends CI_Controller {
     public function create()
     {
         header("Access-Control-Allow-Origin: *");
-        
+
         $record = array(
             "date" => date(DATE_RFC822),
             "time" => unix_to_human(time(), TRUE),
